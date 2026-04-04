@@ -54,12 +54,19 @@ Reduces manual intervention
 🚀 Features (Phase 2 Implementation)
 
 🔐 User Authentication (Login / Signup)
+
 📊 Interactive Dashboard (Risk + Premium + Analytics)
+
 💰 Dynamic Premium Calculation (Weekly Model)
+
 📄 Insurance Policy Management
+
 📦 Claims Management (Add / View / Track)
+
 🤖 Parametric Trigger (Auto approval for rainfall-based claims)
+
 📈 Monthly Cost Estimation
+
 🧠 AI / Logic Used
 
 Although simplified, the system mimics AI behavior using logic-based decisions:
