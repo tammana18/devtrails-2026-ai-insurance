@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+🚀 DEVTrails 2026 – AI-Powered Parametric Insurance Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌍 Problem Statement
 
-## Available Scripts
+E-commerce delivery partners (Amazon/Flipkart) rely on daily deliveries for their income. However, external disruptions like heavy rain, traffic congestion, and curfews can prevent them from completing deliveries, leading to significant income loss.
 
-In the project directory, you can run:
+Currently, there is no automated system that compensates these workers for such unavoidable disruptions.
 
-### `npm start`
+👤 Persona
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We focus on e-commerce delivery partners who depend on daily deliveries for income. Any disruption in logistics or mobility directly impacts their earnings.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+💡 Our Solution
 
-### `npm test`
+We developed a parametric insurance platform that:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✔ Calculates insurance premium dynamically based on user risk
+✔ Allows users to manage policies and claims
+✔ Simulates automated claim processing using smart triggers
+✔ Provides a simple and transparent weekly pricing model
 
-### `npm run build`
+⚙️ How the System Works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+User registers and logs into the platform
+System tracks number of claims made by the user
+Risk level is calculated:
+0 claims → Low Risk
+1–2 claims → Medium Risk
+3+ claims → High Risk
+Weekly premium is calculated based on risk
+Monthly estimate is derived from weekly premium
+Users can submit claims (reason + amount)
+Claims influence future risk and premium
+💰 Pricing Model
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The platform follows a weekly subscription-based model:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Risk Level	Weekly Premium	Monthly Estimate
+Low	₹100	₹400
+Medium	₹200	₹800
+High	₹300	₹1200
+⚡ Parametric Trigger (Smart Feature)
 
-### `npm run eject`
+The system simulates automated claim processing:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Claims related to rainfall are automatically approved
+Demonstrates “zero-touch insurance processing”
+Reduces manual intervention
+🚀 Features (Phase 2 Implementation)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🔐 User Authentication (Login / Signup)
+📊 Interactive Dashboard (Risk + Premium + Analytics)
+💰 Dynamic Premium Calculation (Weekly Model)
+📄 Insurance Policy Management
+📦 Claims Management (Add / View / Track)
+🤖 Parametric Trigger (Auto approval for rainfall-based claims)
+📈 Monthly Cost Estimation
+🧠 AI / Logic Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Although simplified, the system mimics AI behavior using logic-based decisions:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Risk prediction based on user activity (claims)
+Dynamic pricing based on risk level
+Automated claim approval (parametric trigger simulation)
+🛠️ Tech Stack
 
-## Learn More
+Frontend: React.js
+Backend: Node.js / Express.js
+Database: MongoDB
+APIs: (Simulated / Mocked for Phase 2)
+🎯 Conclusion
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project demonstrates how insurance systems can be automated using logic-driven decision making.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+✔ Simple and transparent pricing
+✔ Automated workflows
+✔ Improved user experience
 
-### Code Splitting
+🚀 Future Scope (Phase 3)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Advanced Fraud Detection System
+Real-time API integration (Weather, Traffic)
+Automatic Claim Approval Engine
+Payment Gateway Integration
+AI-based anomaly detection
+🏆 Project Status
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✅ Phase 1 – Ideation & Planning Completed
+✅ Phase 2 – Full System Implementation Completed
+🚀 Phase 3 – Advanced Features (In Progress)  now give demo script
