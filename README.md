@@ -1,110 +1,70 @@
-🚀 DEVTrails 2026 – AI-Powered Parametric Insurance Platform
+# Getting Started with Create React App
 
- 🌍 Problem Statement
-E-commerce delivery partners (Amazon/Flipkart) rely on daily deliveries for their income. However, external disruptions like heavy rain, traffic congestion, and curfews can prevent them from completing deliveries, leading to significant income loss.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Currently, there is no system that automatically compensates these workers for such unavoidable disruptions.
+## Available Scripts
 
+In the project directory, you can run:
 
-👤 Persona
-We focus on **e-commerce delivery partners (Amazon/Flipkart)** who deliver packages across cities. Their earnings depend on completed deliveries, and any disruption in logistics or mobility directly impacts their income.
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-💡 Our Solution
-We propose an **AI-powered parametric insurance platform** that:
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-✔ Monitors real-world conditions (weather, traffic, disruptions)  
-✔ Automatically detects income-loss events  
-✔ Triggers instant payouts without manual claims  
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
- ⚙️ System Workflow
-1. Delivery partner registers on the platform  
-2. System tracks location and delivery activity  
-3. External data (weather, traffic, delivery disruptions) is monitored  
-4. If disruption is detected, claim is triggered automatically  
-5. AI verifies authenticity of the claim  
-6. Instant payout is processed to the user  
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-💰 Weekly Pricing Model
-- Workers pay a small weekly premium (₹20–₹50)  
-- Pricing is based on risk level of the delivery area  
-- High-risk zones (flood-prone, high congestion) → higher premium  
-- Low-risk zones → lower premium  
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-⚡ Parametric Triggers
-Claims are automatically triggered when:
+### `npm run eject`
 
-- Heavy rainfall affects delivery routes  
-- Road closures or traffic congestion occur  
-- Government curfews restrict movement  
-- Warehouse or logistics hub shutdowns happen  
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
- 🧠 AI / ML Integration
-Our system uses AI for:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- 📊 Risk prediction for dynamic pricing  
-- 🚨 Fraud detection using behavior patterns  
-- 📍 Activity analysis of delivery partners  
-- 🔍 Detecting anomalies in claims  
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Learn More
 
- 🚨 Adversarial Defense & Anti-Spoofing Strategy
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
- 🔥 Market Crash Scenario Handling
-In scenarios like the **“Market Crash”**, where hundreds of fake delivery partners use GPS spoofing to claim payouts, simple location verification fails.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Our system uses **multi-layered validation** combining behavioral, device, and external data to prevent fraud and ensure only genuine users receive payouts.
+### Code Splitting
 
-🕵️ Detecting Fake vs Genuine Users
-- Detects **unrealistic speeds** (impossible movement)  
-- Identifies **sudden GPS jumps (teleportation)**  
-- Checks **real app activity vs fake inactivity**  
-- Validates routes using real-world road networks  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
- 📊 Fraud Ring Detection
-- Flags multiple accounts from same **device/IP**  
-- Detects **identical movement patterns** across users  
-- Identifies **synchronized claim requests**  
-- Tracks **abnormal claim frequency**  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
- ⚖️ Fairness & User Protection
-- Uses **risk scoring system** (not instant bans)  
-- Applies **multi-factor verification**  
-- Allows **temporary flagging instead of blocking**  
-- Provides **manual review & appeal option**  
+### Making a Progressive Web App
 
-     . 🌐 External Data Validation
-- Weather APIs → verify real disruptions  
-- Traffic data → detect road issues  
-- Platform activity → confirm delivery slowdown  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+### Advanced Configuration
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-🤖 AI-Based Anomaly Detection
-Machine learning models analyze historical delivery and claim patterns. Any unusual behavior is flagged as suspicious and reviewed.
+### Deployment
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
- 🛠️ Tech Stack
-- Frontend: React / HTML  
-- Backend: Node.js /Java
-- Database: MongoDB / MySQL  
-- APIs: Weather API, Maps API  
+### `npm run build` fails to minify
 
- 🎯 Conclusion
-This platform provides a **smart, automated, and fair insurance system** for delivery workers.  
-
-It ensures:
-✔ Quick compensation for genuine users  
-✔ Strong fraud prevention  
-✔ Reliability even during large-scale attacks like the Market Crash  
-
-
- 🚀 Future Scope
-- Real-time dashboard for workers & admins  
-- Integration with payment gateways  
-- Advanced ML models for better fraud detection
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
