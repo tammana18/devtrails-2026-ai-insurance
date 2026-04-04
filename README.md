@@ -6,6 +6,7 @@ E-commerce delivery partners (Amazon/Flipkart) rely on daily deliveries for thei
 
 Currently, there is no automated system that compensates these workers for such unavoidable disruptions.
 
+
 👤 Persona
 
 We focus on e-commerce delivery partners who depend on daily deliveries for income. Any disruption in logistics or mobility directly impacts their earnings.
