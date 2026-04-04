@@ -32,6 +32,8 @@ Weekly premium is calculated based on risk
 Monthly estimate is derived from weekly premium
 Users can submit claims (reason + amount)
 Claims influence future risk and premium
+
+
 💰 Pricing Model
 
 The platform follows a weekly subscription-based model:
@@ -40,6 +42,7 @@ Risk Level	Weekly Premium	Monthly Estimate
 Low	₹100	₹400
 Medium	₹200	₹800
 High	₹300	₹1200
+
 ⚡ Parametric Trigger (Smart Feature)
 
 The system simulates automated claim processing:
@@ -47,6 +50,7 @@ The system simulates automated claim processing:
 Claims related to rainfall are automatically approved
 Demonstrates “zero-touch insurance processing”
 Reduces manual intervention
+
 🚀 Features (Phase 2 Implementation)
 
 🔐 User Authentication (Login / Signup)
@@ -63,6 +67,8 @@ Although simplified, the system mimics AI behavior using logic-based decisions:
 Risk prediction based on user activity (claims)
 Dynamic pricing based on risk level
 Automated claim approval (parametric trigger simulation)
+
+
 🛠️ Tech Stack
 
 Frontend: React.js
@@ -84,6 +90,7 @@ Real-time API integration (Weather, Traffic)
 Automatic Claim Approval Engine
 Payment Gateway Integration
 AI-based anomaly detection
+
 🏆 Project Status
 
 ✅ Phase 1 – Ideation & Planning Completed
