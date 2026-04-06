@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Dashboard from './pages/Dashboard';
 import Claims from './pages/Claims';
 import Policy from './pages/Policy';
+import AdminDashboard from "./pages/AdminDashboard";
 
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/claims" element={token ? <Claims /> : <Navigate to="/login" />} />
         <Route path="/policy" element={token ? <Policy /> : <Navigate to="/login" />} />
+        <Route path="/admin" element={<AdminDashboard />} />
 
         <Route path="/" element={token ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to="/" />} />

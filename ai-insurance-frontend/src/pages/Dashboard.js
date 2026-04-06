@@ -1,117 +1,105 @@
-﻿import { useEffect, useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+﻿import React, { useEffect, useState } from "react";
 
 function Dashboard() {
-  const navigate = useNavigate();
-  const [claimsCount, setClaimsCount] = useState(0);
-  const [earnings, setEarnings] = useState(0);
-
-  const getRiskLevel = (claims) => {
-    if (claims >= 2) return "High";
-    else if (claims === 1) return "Medium";
-    else return "Low";
-  };
-
-  const getPremium = (riskLevel) => {
-    if (riskLevel === "Low") return 100;
-    if (riskLevel === "Medium") return 200;
-    if (riskLevel === "High") return 300;
-    return 0;
-  };
-
-  const riskLevel = useMemo(() => getRiskLevel(claimsCount), [claimsCount]);
-  const weeklyPremium = useMemo(() => getPremium(riskLevel), [riskLevel]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
 
   useEffect(() => {
-    const fetchDashboardData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/claim", {
-          headers: {
-            Authorization: token,
-            "Content-Type": "application/json"
-          }
-        });
-
-        const data = await res.json();
-        const list = Array.isArray(data) ? data : [];
-        setClaimsCount(list.length);
-
-        const approvedTotal = list
-          .filter((item) => item.status === "approved")
-          .reduce((sum, item) => sum + Number(item.amount || 0), 0);
-        setEarnings(approvedTotal);
-      } catch (error) {
-        console.error("Error loading dashboard:", error);
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 576);
     };
 
-    fetchDashboardData();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const responsiveCardStyle = {
+    ...cardStyle,
+    width: isMobile ? "100%" : "220px"
+  };
+
   return (
-    <div className="dashboard-page container mt-5">
-      <div className="text-center mb-4">
-        <h2 className="mb-1">Dashboard</h2>
-        <p className="text-muted mb-0">Quick overview of your insurance activity</p>
+    <div style={{ 
+      padding: "30px", 
+      backgroundColor: "#f5f7fa",
+      minHeight: "100vh"
+    }}>
+      
+      {/* Title */}
+      <h2 style={{ marginBottom: "5px" }}>Insurance Dashboard</h2>
+      <p style={{ color: "#666", marginBottom: "20px" }}>
+        AI-powered income protection overview
+      </p>
+
+      {/* Stats Cards */}
+      <div style={{ 
+        display: "flex", 
+        gap: "20px", 
+        flexWrap: "wrap",
+        marginBottom: "30px"
+      }}>
+        
+        <div style={responsiveCardStyle}>
+          <h3>Policy</h3>
+          <p>Active ✅</p>
+        </div>
+
+        <div style={responsiveCardStyle}>
+          <h3>Earnings Protected</h3>
+          <p>₹2000 💰</p>
+        </div>
+
+        <div style={responsiveCardStyle}>
+          <h3>Total Claims</h3>
+          <p>5 📄</p>
+        </div>
+
+        <div style={responsiveCardStyle}>
+          <h3>Fraud Detected</h3>
+          <p>1 ❌</p>
+        </div>
+
       </div>
 
-      <div className="row g-3 mt-1">
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm dashboard-stat-card">
-            <h6 className="text-muted">Approved Earnings</h6>
-            <h3 className="mb-0">Rs.{earnings}</h3>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm dashboard-stat-card">
-            <h6 className="text-muted">Total Claims</h6>
-            <h3 className="mb-0">{claimsCount}</h3>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm dashboard-stat-card">
-            <h6 className="text-muted">Risk Level</h6>
-            <h3 className="mb-0">
-              <span className={`badge ${riskLevel === "Low" ? "bg-success" : riskLevel === "Medium" ? "bg-warning text-dark" : "bg-danger"}`}>
-                {riskLevel}
-              </span>
-            </h3>
-          </div>
-        </div>
+      {/* AI Prediction */}
+      <div style={{
+        marginTop: "20px",
+        padding: "20px",
+        borderRadius: "10px",
+        backgroundColor: "#fff3cd",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+      }}>
+        <h3>AI Insight 🔮</h3>
+        <p>⚠️ High chance of rain this week → Increased claim probability</p>
       </div>
 
-      <div className="row g-3 mt-3">
-        <div className="col-md-6">
-          <div className="card p-3 shadow-sm dashboard-stat-card">
-            <h6 className="text-muted">Weekly Premium</h6>
-            <h3 className="mb-0">Rs.{weeklyPremium}</h3>
-            <small className="text-muted">Based on {riskLevel} risk</small>
-          </div>
-        </div>
-
-        <div className="col-md-6">
-          <div className="card p-3 shadow-sm dashboard-stat-card">
-            <h6 className="text-muted">Monthly Estimate</h6>
-            <h3 className="mb-0">Rs.{weeklyPremium * 4}</h3>
-            <small className="text-muted">{weeklyPremium} × 4 weeks</small>
-          </div>
-        </div>
+      {/* Recent Activity */}
+      <div style={{
+        marginTop: "20px",
+        padding: "20px",
+        borderRadius: "10px",
+        backgroundColor: "#ffffff",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+      }}>
+        <h3>Recent Activity</h3>
+        <ul style={{ lineHeight: "1.8" }}>
+          <li>Claim Approved ✅ ₹500 credited</li>
+          <li>Fraud Claim Rejected ❌</li>
+          <li>Policy Active</li>
+        </ul>
       </div>
 
-      <div className="text-center mt-4">
-        <button className="btn btn-success me-2" onClick={() => navigate("/policy")}>
-          Buy Insurance
-        </button>
-
-        <button className="btn btn-warning" onClick={() => navigate("/claims")}>
-          View Claims
-        </button>
-      </div>
     </div>
   );
 }
+
+// Card style
+const cardStyle = {
+  padding: "20px",
+  borderRadius: "12px",
+  width: "220px",
+  textAlign: "center",
+  backgroundColor: "#ffffff",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+};
 
 export default Dashboard;

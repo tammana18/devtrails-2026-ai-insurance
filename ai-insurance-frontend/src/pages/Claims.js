@@ -141,6 +141,19 @@ function Claims() {
     }
   };
 
+  const simulateRain = () => {
+    const isFraud = Math.random() < 0.5;
+
+    const newClaim = {
+      id: Date.now(),
+      status: isFraud ? "Rejected ❌" : "Approved ✅",
+      reason: isFraud ? "Fake Location detected" : "",
+      payoutMessage: isFraud ? "" : "₹500 credited successfully"
+    };
+
+    setClaims((prev) => [newClaim, ...prev]);
+  };
+
   return (
     <div className="claims-page container mt-4">
       <div className="claims-header mb-4">
@@ -179,6 +192,13 @@ function Claims() {
               Cancel
             </button>
           )}
+          <button 
+            className="btn btn-info" 
+            type="button" 
+            onClick={simulateRain}
+          >
+            Simulate Rain 🌧️
+          </button>
         </form>
       </div>
 
@@ -216,36 +236,19 @@ function Claims() {
 
         {loading ? (
           <p>Loading...</p>
-        ) : claims.length === 0 ? (
-          <p>No claims found</p>
-        ) : filteredClaims.length === 0 ? (
-          <p>No claims match your filters</p>
         ) : (
-          filteredClaims.map((claim) => (
-            <div key={claim._id} className="claim-item border rounded p-3 mb-2">
-              <div><b>Reason:</b> {claim.reason}</div>
-              <div><b>Amount:</b> Rs.{claim.amount}</div>
-              <div>
-                <b>Status:</b>{" "}
-                <span className={`badge ${claim.status === "approved" ? "bg-success" : claim.status === "rejected" ? "bg-danger" : "bg-warning text-dark"}`}>
-                  {claim.status}
-                </span>
+          claims.length === 0 ? (
+            <p>No claims found</p>
+          ) : (
+            claims.map((claim) => (
+              <div key={claim.id}>
+                <p>Status: {claim.status}</p>
+                {claim.reason && <p>Reason: {claim.reason}</p>}
+                {claim.payoutMessage && <p>💸 {claim.payoutMessage}</p>}
+                <hr />
               </div>
-              {claim.status === "approved" && claim.reason.toLowerCase().includes("rain") && (
-                <p style={{ color: "green" }} className="mt-2 mb-0">
-                  Auto-approved due to weather trigger 🌧️
-                </p>
-              )}
-              <div className="mt-2">
-                <button className="btn btn-sm btn-warning me-2" onClick={() => startEdit(claim)}>
-                  Update
-                </button>
-                <button className="btn btn-sm btn-danger" onClick={() => deleteClaim(claim._id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))
+            ))
+          )
         )}
       </div>
     </div>

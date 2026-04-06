@@ -1,24 +1,49 @@
 const Claim = require('../models/Claim');
 
+// Fraud Detection Function
+function detectFraud(claim) {
+  if (claim.location === "fake") return "Fake Location";
+  if (claim.weather === "clear") return "No disruption";
+  if (claim.isDuplicate) return "Duplicate claim";
+  return "Valid";
+}
+
+// Process Payout Function
+function processPayout(user, amount) {
+  return `₹${amount} credited to ${user}`;
+}
+
 // Create Claim
 exports.createClaim = async (req, res) => {
   try {
-    const reason = (req.body.reason || '').trim();
-    const amount = Number(req.body.amount || 0);
-    const status = reason.toLowerCase().includes('rain') ? 'approved' : 'pending';
+    const result = detectFraud(req.body);
 
-    if (!reason || amount <= 0) {
-      return res.status(400).json({ message: 'Reason and valid amount are required' });
+    let status = "";
+    let reason = "";
+
+    if (result !== "Valid") {
+      status = "Rejected ❌";
+      reason = result;
+    } else {
+      status = "Approved ✅";
     }
 
-    const claim = await Claim.create({
-      userId: req.user.id,
+    let payoutMessage = "";
+
+    if (status === "Approved ✅") {
+      payoutMessage = processPayout(req.body.user || "User", 500);
+    }
+
+    const newClaim = new Claim({
+      ...req.body,
+      status,
       reason,
-      amount,
-      status
+      payoutMessage
     });
 
-    return res.status(201).json(claim);
+    await newClaim.save();
+
+    return res.status(201).json(newClaim);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: 'Error' });
